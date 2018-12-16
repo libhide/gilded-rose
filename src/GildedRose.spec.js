@@ -231,7 +231,7 @@ describe('Gilded Rose', () => {
     });
   });
 
-  describe('Conjured Mana Cake item, ', () => {
+  xdescribe('Conjured Mana Cake item, ', () => {
     let item_name = 'Conjured Mana Cake';
 
     runSharedTestsItemSellIn(item_name);
@@ -239,13 +239,13 @@ describe('Gilded Rose', () => {
     describe('item quality', () => {
       runSharedTestsItemQualityValue(item_name);
 
-      xit('lowers quality value by 2 at the end of the day', () => {
+      it('lowers quality value by 2 at the end of the day', () => {
         const gildedRose = new GildedRose([new Item(item_name, 1, 2)]);
         gildedRose.tick();
         expect(gildedRose.items[0].quality).toEqual(0);
       });
 
-      xit('lowers quality value twice as fast after N days', () => {
+      it('lowers quality value twice as fast after N days', () => {
         const n = 5;
         const quality = 15;
         const gildedRose = new GildedRose([new Item(item_name, 1, quality)]);
