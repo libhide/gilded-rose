@@ -1,1 +1,1 @@
-# Gilded Rose Kata - solution
+# Gilded Rose Kata
