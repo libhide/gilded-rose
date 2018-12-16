@@ -7,7 +7,10 @@ class ConjuredItem extends Item {
     super(name, sellIn, quality);
   }
 
-  tick() {}
+  tick() {
+    if (this.quality > 0) this.quality -= 2;
+    this.sellIn -= 1;
+  }
 }
 
 module.exports = ConjuredItem;
