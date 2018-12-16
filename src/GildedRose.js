@@ -29,6 +29,24 @@ class GildedRose {
     return;
   }
 
+  backstageTick(item) {
+    if (item.sellIn <= 0) {
+      item.quality = 0;
+    } else {
+      if (item.quality < 50) {
+        item.quality += 1;
+        if (item.sellIn < 11 && item.quality < 50) {
+          item.quality += 1;
+        }
+        if (item.sellIn < 6 && item.quality < 50) {
+          item.quality += 1;
+        }
+      }
+    }
+
+    item.sellIn -= 1;
+  }
+
   tick() {
     for (const item of this.items) {
       if (
@@ -43,6 +61,9 @@ class GildedRose {
         return;
       } else if (item.name == 'Sulfuras, Hand of Ragnaros') {
         this.sulfurasTick(item);
+        return;
+      } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
+        this.backstageTick(item);
         return;
       } else {
         // not-implemented yet

@@ -222,7 +222,7 @@ describe('Gilded Rose', () => {
       });
 
       describe('when sell in date has passed', () => {
-        it('increases to 50 instead of 52 whe', () => {
+        it('quality drops to 0 when sell_in date has passed', () => {
           const gildedRose = new GildedRose([new Item(item_name, 0, 5)]);
           gildedRose.tick();
           expect(gildedRose.items[0].quality).toEqual(0);
