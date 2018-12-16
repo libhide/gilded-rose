@@ -9,8 +9,25 @@ class GildedRose {
     return this._items;
   }
 
+  defaultTick(item) {
+    if (item.quality != 0) {
+      if (item.sellIn > 0) item.quality = item.quality - 1;
+      if (item.sellIn <= 0) item.quality = item.quality - 2;
+    }
+    item.sellIn = item.sellIn - 1;
+  }
+
   tick() {
     for (const item of this.items) {
+      if (
+        item.name != 'Aged Brie' &&
+        item.name != 'Backstage passes to a TAFKAL80ETC concert' &&
+        item.name != 'Sulfuras, Hand of Ragnaros'
+      ) {
+        this.defaultTick(item);
+        return;
+      }
+
       if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert') {
         if (item.quality > 0 && item.name != 'Sulfuras, Hand of Ragnaros') {
           item.quality = item.quality - 1;
