@@ -10,14 +10,14 @@ describe('Gilded Rose', () => {
         const item = new Item('foo', 0, 0);
         const gildedRose = new GildedRose([item]);
         gildedRose.tick();
-        expect(item.name).toEqual('foo');
+        expect(gildedRose.items[0].name).toEqual('foo');
       });
 
       it('lowers quality value by 1 at the end of the day', () => {
         const item = new Item('foo', 1, 1);
         const gildedRose = new GildedRose([item]);
         gildedRose.tick();
-        expect(item.quality).toEqual(0);
+        expect(gildedRose.items[0].quality).toEqual(0);
       });
     });
 

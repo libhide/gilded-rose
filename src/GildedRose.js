@@ -1,5 +1,7 @@
 'use strict';
 
+const DefaultItem = require('./DefaultItem');
+
 class GildedRose {
   constructor(items = []) {
     this._items = items;
@@ -7,6 +9,10 @@ class GildedRose {
 
   get items() {
     return this._items;
+  }
+
+  set items(aList) {
+    this._items = aList;
   }
 
   defaultTick(item) {
@@ -42,21 +48,24 @@ class GildedRose {
   }
 
   tick() {
-    for (const item of this.items) {
+    this.items = this.items.map(item => {
       switch (item.name) {
         case 'Aged Brie':
           this.agedBrieTick(item);
-          break;
+          return item;
         case 'Sulfuras, Hand of Ragnaros':
           this.sulfurasTick(item);
-          break;
+          return item;
         case 'Backstage passes to a TAFKAL80ETC concert':
           this.backstageTick(item);
-          break;
-        default:
-          this.defaultTick(item);
+          return item;
+        default: {
+          const defaultItem = new DefaultItem(item.name, item.sellIn, item.quality);
+          defaultItem.tick();
+          return defaultItem;
+        }
       }
-    }
+    });
   }
 }
 
