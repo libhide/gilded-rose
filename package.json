@@ -1,0 +1,14 @@
+{
+  "name": "gildedrose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Ratik Sharma",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "23.6.0"
+  }
+}
