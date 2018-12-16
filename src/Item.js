@@ -26,6 +26,8 @@ class Item {
   set quality(aNumber) {
     this._quality = aNumber;
   }
+
+  tick() {}
 }
 
 module.exports = Item;

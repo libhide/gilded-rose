@@ -1,8 +1,8 @@
 'use strict';
 
+const Item = require('./Item');
 const DefaultItem = require('./DefaultItem');
 const AgedBrieItem = require('./AgedBrieItem');
-const SulfurasItem = require('./SulfurasItem');
 const BackstageItem = require('./BackstageItem');
 const ConjuredItem = require('./ConjuredItem');
 
@@ -24,7 +24,7 @@ class GildedRose {
       case 'Aged Brie':
         return new AgedBrieItem(item.name, item.sellIn, item.quality);
       case 'Sulfuras, Hand of Ragnaros':
-        return new SulfurasItem(item.name, item.sellIn, item.quality);
+        return new Item(item.name, item.sellIn, item.quality);
       case 'Backstage passes to a TAFKAL80ETC concert':
         return new BackstageItem(item.name, item.sellIn, item.quality);
       case 'Conjured Mana Cake':
