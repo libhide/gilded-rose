@@ -231,7 +231,7 @@ describe('Gilded Rose', () => {
     });
   });
 
-  xdescribe('Conjured Mana Cake item, ', () => {
+  describe('Conjured Mana Cake item, ', () => {
     let item_name = 'Conjured Mana Cake';
 
     runSharedTestsItemSellIn(item_name);

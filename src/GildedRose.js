@@ -4,6 +4,7 @@ const DefaultItem = require('./DefaultItem');
 const AgedBrieItem = require('./AgedBrieItem');
 const SulfurasItem = require('./SulfurasItem');
 const BackstageItem = require('./BackstageItem');
+const ConjuredItem = require('./ConjuredItem');
 
 class GildedRose {
   constructor(items = []) {
@@ -26,6 +27,8 @@ class GildedRose {
         return new SulfurasItem(item.name, item.sellIn, item.quality);
       case 'Backstage passes to a TAFKAL80ETC concert':
         return new BackstageItem(item.name, item.sellIn, item.quality);
+      case 'Conjured Mana Cake':
+        return new ConjuredItem(item.name, item.sellIn, item.quality);
       default:
         return new DefaultItem(item.name, item.sellIn, item.quality);
     }
