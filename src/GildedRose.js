@@ -49,24 +49,14 @@ class GildedRose {
 
   tick() {
     for (const item of this.items) {
-      if (
-        item.name != 'Aged Brie' &&
-        item.name != 'Backstage passes to a TAFKAL80ETC concert' &&
-        item.name != 'Sulfuras, Hand of Ragnaros'
-      ) {
-        this.defaultTick(item);
-        return;
-      } else if (item.name == 'Aged Brie') {
+      if (item.name == 'Aged Brie') {
         this.agedBrieTick(item);
-        return;
       } else if (item.name == 'Sulfuras, Hand of Ragnaros') {
         this.sulfurasTick(item);
-        return;
       } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
         this.backstageTick(item);
-        return;
       } else {
-        // not-implemented yet
+        this.defaultTick(item);
       }
     }
   }
