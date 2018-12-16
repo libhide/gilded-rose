@@ -1,4 +1,7 @@
-const { GildedRose, Item } = require('./GildedRose');
+'use strict';
+
+const Item = require('./Item');
+const GildedRose = require('./GildedRose');
 
 describe('Gilded Rose', () => {
   describe('Default item, ', () => {
