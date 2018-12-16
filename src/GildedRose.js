@@ -2,7 +2,11 @@
 
 class GildedRose {
   constructor(items = []) {
-    this.items = items;
+    this._items = items;
+  }
+
+  get items() {
+    return this._items;
   }
 
   tick() {
