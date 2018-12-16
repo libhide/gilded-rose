@@ -17,6 +17,14 @@ class GildedRose {
     item.sellIn -= 1;
   }
 
+  agedBrieTick(item) {
+    if (item.quality < 50) {
+      if (item.sellIn > 0) item.quality += 1;
+      if (item.sellIn <= 0) item.quality += 2;
+    }
+    item.sellIn -= 1;
+  }
+
   tick() {
     for (const item of this.items) {
       if (
@@ -26,6 +34,11 @@ class GildedRose {
       ) {
         this.defaultTick(item);
         return;
+      } else if (item.name == 'Aged Brie') {
+        this.agedBrieTick(item);
+        return;
+      } else {
+        // not-implemented yet
       }
 
       if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert') {
