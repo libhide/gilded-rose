@@ -1,6 +1,7 @@
 'use strict';
 
 const DefaultItem = require('./DefaultItem');
+const AgedBrieItem = require('./AgedBrieItem');
 
 class GildedRose {
   constructor(items = []) {
@@ -13,24 +14,6 @@ class GildedRose {
 
   set items(aList) {
     this._items = aList;
-  }
-
-  defaultTick(item) {
-    if (item.quality != 0) {
-      if (item.sellIn > 0) item.quality -= 1;
-      if (item.sellIn <= 0) item.quality -= 2;
-    }
-
-    item.sellIn -= 1;
-  }
-
-  agedBrieTick(item) {
-    if (item.quality < 50) {
-      if (item.sellIn > 0) item.quality += 1;
-      if (item.sellIn <= 0) item.quality += 2;
-    }
-
-    item.sellIn -= 1;
   }
 
   sulfurasTick(item) {}
@@ -50,9 +33,11 @@ class GildedRose {
   tick() {
     this.items = this.items.map(item => {
       switch (item.name) {
-        case 'Aged Brie':
-          this.agedBrieTick(item);
-          return item;
+        case 'Aged Brie': {
+          const agedBrieItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
+          agedBrieItem.tick();
+          return agedBrieItem;
+        }
         case 'Sulfuras, Hand of Ragnaros':
           this.sulfurasTick(item);
           return item;
