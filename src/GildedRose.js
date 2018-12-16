@@ -25,6 +25,10 @@ class GildedRose {
     item.sellIn -= 1;
   }
 
+  sulfurasTick(item) {
+    return;
+  }
+
   tick() {
     for (const item of this.items) {
       if (
@@ -36,6 +40,9 @@ class GildedRose {
         return;
       } else if (item.name == 'Aged Brie') {
         this.agedBrieTick(item);
+        return;
+      } else if (item.name == 'Sulfuras, Hand of Ragnaros') {
+        this.sulfurasTick(item);
         return;
       } else {
         // not-implemented yet
