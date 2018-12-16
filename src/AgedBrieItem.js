@@ -8,11 +8,7 @@ class AgedBrieItem extends Item {
   }
 
   tick() {
-    if (this.quality < 50) {
-      if (this.sellIn > 0) this.quality += 1;
-      if (this.sellIn <= 0) this.quality += 2;
-    }
-
+    if (this.quality < 50) this.sellIn > 0 ? (this.quality += 1) : (this.quality += 2);
     this.sellIn -= 1;
   }
 }
